@@ -6,7 +6,7 @@
     <img src="/babble.svg" class="w-7" />
   </a>
   <h1 class="text-4xl font-medium mt-12 mb-8 text-slate-800">Sign up</h1>
-  <form method="POST" action="/register">
+  <form method="POST" action="{{ route('register') }}">
     @csrf
 
     <div class="flex items-center space-x-10">
@@ -27,13 +27,13 @@
     >
       Create Account
     </button>
+  </form>
 
-    <button
-      class="mt-3 hover:bg-indigo-50 duration-150 text-indigo-500 rounded-md px-4 w-full py-3 font-medium"
-    >
+  <a href="/login">
+    <button class="mt-3 hover:bg-indigo-50 duration-150 text-indigo-500 rounded-md px-4 w-full py-3 font-medium">
       Sign in instead
     </button>
-  </form>
+  </a>
 </div>
 
 <x-footer />
