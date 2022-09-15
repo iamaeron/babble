@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ChatsController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,10 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('pages.landing');
-});
+})->middleware('guest');
 
-// Test route for now
+Auth::routes(['verify' => true]);
 
-Route::get('/chats', function () {
-    return view('pages.chats');
-});
+Route::get('/chats', [ChatsController::class, 'index']);
+
+require __DIR__ . '/auth.php';
